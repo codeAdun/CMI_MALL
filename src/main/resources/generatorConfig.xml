@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+    <!--    配置连接数据库需要的驱动，路径写绝对路径-->
+    <classPathEntry location="/Users/adun/java_software/work/mysql-connector-java-5.1.6.jar" />
+    <!-- end   配置连接数据库需要的驱动-->
+    <context id="mysql" targetRuntime="MyBatis3">
+
+        <!--        不再追加xml内容-->
+        <plugin type="org.mybatis.generator.plugins.UnmergeableXmlMappersPlugin" />
+
+<!--        去掉自动生成类注释 的注解-->
+        <commentGenerator>
+            <property name="suppressAllComments" value="true"></property>
+        </commentGenerator>
+
+        <!--mysql驱动，由于驱动是5.1.6版本，所以驱动不需要写cj-->
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://127.0.0.1:3306/cmi_mall?characterEncoding=utf-8"
+                        userId="root"
+                        password="123456">
+        </jdbcConnection>
+
+        <javaTypeResolver >
+            <property name="forceBigDecimals" value="false" />
+        </javaTypeResolver>
+
+        <!--java对象实体对应的路径 -->
+        <javaModelGenerator targetPackage="com.sitech.cmi_mall.pojo" targetProject="src/main/java">
+            <!-- 在targetPackage的基础上，根据数据库的schema再生成一层package，最终生成的类放在这个package下，默认为false,现在修改为false -->
+            <property name="enableSubPackages" value="true" />
+            <!-- 设置是否在getter方法中，对String类型字段调用trim()方法 -->
+            <property name="trimStrings" value="true" />
+        </javaModelGenerator>
+        <!--end java对象实体对应的路径  targetPackage：pojo的包名      -->
+
+        <!--生成的xml 文件存放的路径 mappers 的配置文件-->
+        <sqlMapGenerator targetPackage="mappers"  targetProject="src/main/resources">
+            <property name="enableSubPackages" value="true" />
+        </sqlMapGenerator>
+        <!--end mappers 的配置文件-->
+
+        <!-- dao接口存放的文件夹和路径        -->
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.sitech.cmi_mall.dao"  targetProject="src/main/java">
+            <property name="enableSubPackages" value="true" />
+        </javaClientGenerator>
+
+<!--        <table schema="DB2ADMIN" tableName="ALLTYPES" domainObjectName="Customer" >-->
+<!--            <property name="useActualColumnNames" value="true"/>-->
+<!--            <generatedKey column="ID" sqlStatement="DB2" identity="true" />-->
+<!--            <columnOverride column="DATE_FIELD" property="startDate" />-->
+<!--            <ignoreColumn column="FRED" />-->
+<!--            <columnOverride column="LONG_VARCHAR_FIELD" jdbcType="VARCHAR" />-->
+<!--        </table>-->
+
+        <!--修改完成
+          domainObjectName="Order" 指定生成的表名
+        -->
+<!--        <table tableName="mall_order" domainObjectName="Order"></table>-->
+        <table tableName="mall_order" domainObjectName="Order" enableCountByExample="false" enableDeleteByExample="false" enableSelectByExample="false" enableUpdateByExample="false"/>
+        <table tableName="mall_category" domainObjectName="Category" enableCountByExample="false" enableDeleteByExample="false" enableSelectByExample="false" enableUpdateByExample="false"></table>
+
+
+    </context>
+</generatorConfiguration>
