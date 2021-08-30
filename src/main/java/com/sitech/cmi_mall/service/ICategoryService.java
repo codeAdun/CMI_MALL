@@ -1,6 +1,7 @@
 package com.sitech.cmi_mall.service;
 
 
+import com.sitech.cmi_mall.pojo.Category;
 import com.sitech.cmi_mall.vo.CategoryVo;
 
 import java.util.List;
@@ -11,5 +12,7 @@ import java.util.List;
 public interface ICategoryService {
 
     List<CategoryVo> selectAll();
+
+    int updateByPrimaryKey(Category record);
 
 }
