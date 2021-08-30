@@ -60,6 +60,7 @@
           domainObjectName="Order" 指定生成的表名
         -->
 <!--        <table tableName="mall_order" domainObjectName="Order"></table>-->
+<!--        重新构建generate-->
         <table tableName="mall_order" domainObjectName="Order" enableCountByExample="false" enableDeleteByExample="false" enableSelectByExample="false" enableUpdateByExample="false"/>
         <table tableName="mall_category" domainObjectName="Category" enableCountByExample="false" enableDeleteByExample="false" enableSelectByExample="false" enableUpdateByExample="false"></table>
 

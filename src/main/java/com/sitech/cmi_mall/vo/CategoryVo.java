@@ -16,5 +16,6 @@ public class CategoryVo {
 
     private Integer sortOrder;
 
+
     private List<CategoryVo> subCategories;
 }

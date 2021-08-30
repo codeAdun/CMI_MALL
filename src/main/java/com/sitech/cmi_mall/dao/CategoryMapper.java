@@ -5,6 +5,9 @@ import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
 
+/**
+ * @author adun
+ */
 public interface CategoryMapper {
     int deleteByPrimaryKey(Integer id);
 
