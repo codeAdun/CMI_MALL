@@ -21,4 +21,6 @@ public class CategoryController {
     public List<CategoryVo> selectAll() {
         return categoryService.selectAll();
     }
+
+    //测试新增测试
 }
