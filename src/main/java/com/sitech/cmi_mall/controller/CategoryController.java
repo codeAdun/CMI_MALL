@@ -23,4 +23,10 @@ public class CategoryController {
     }
 
     //测试新增测试
+    //短发短发
+
+    @GetMapping("/categories2")
+    public List<CategoryVo> selectAll2() {
+        return categoryService.selectAll();
+    }
 }
